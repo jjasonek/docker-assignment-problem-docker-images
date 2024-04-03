@@ -2,6 +2,6 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY . /app
+COPY . .
 
-CMD ["python3", "bmi.py"]
+CMD ["python", "bmi.py"]
