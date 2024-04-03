@@ -29,3 +29,29 @@ a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   22 hours ago    Up 22 h
 PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker stop hello_node
 hello_node
 PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app>
+
+
+## CLEAN UP
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker images
+REPOSITORY         TAG                  IMAGE ID       CREATED             SIZE
+<none>             <none>               15e5614526a9   About an hour ago   130MB
+<none>             <none>               8d911866707e   About an hour ago   212MB
+my_tag             latest               e197ccb2bed1   21 hours ago        1.11GB
+<none>             <none>               a62b6d2f1f1a   22 hours ago        1.11GB
+<none>             <none>               34d52ade3c61   4 days ago          1.02GB
+node               latest               c3978d05bc68   3 weeks ago         1.1GB
+local/apache-php   5                    35dd64e3e7cc   23 months ago       44.5MB
+local/apache-php   7                    a1524730afe0   23 months ago       21.2MB
+local              fromscratch          954bd8778be6   23 months ago       5.59MB
+local              dockerfile-example   0224f749c762   23 months ago       7.17MB
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                        PORTS                  NAMES
+3986fb877748   8d911866707e   "docker-entrypoint.s…"   17 minutes ago   Exited (137) 13 minutes ago                          hello_node
+e20f463a7a59   15e5614526a9   "python3 bmi.py"         26 minutes ago   Exited (0) 22 minutes ago                            bmi_counter
+a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   22 hours ago     Up 22 hours                   0.0.0.0:3000->80/tcp   my_container_name
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker rm hello_node bmi_counter
+hello_node
+bmi_counter
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker rmi 15e5614526a9 8d911866707e
+Deleted: sha256:15e5614526a97c70f58e8a90be778f0da9ede87de975e14f16a84c9b32937081
+Deleted: sha256:8d911866707eb3ca04b3a1cb59bfbc15d70bfed0d3c9048bfe1d1936a825972f
