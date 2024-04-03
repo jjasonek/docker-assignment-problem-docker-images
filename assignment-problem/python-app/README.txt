@@ -70,3 +70,17 @@ What's Next?
 PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker images
 REPOSITORY         TAG                  IMAGE ID       CREATED         SIZE
 bmi_counter        3.12-slim            e3c3239bd4fe   7 seconds ago   130MB
+
+
+## RUNNING CONTAINERS BASED ON TAGGED IMAGES
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker run -ti --rm bmi_counter:3.12-slim
+(1) Metric (m, kg) or (2) Non-Metric (ft, pounds)?
+Please choose: 1
+Please enter your height in meters
+Your height: 1.62
+Please enter your weight in kilograms
+Your weight: 78
+Your body-mass-index: 29.721079103795148
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS        PORTS                  NAMES
+a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   22 hours ago   Up 22 hours   0.0.0.0:3000->80/tcp   my_container_name

@@ -82,3 +82,17 @@ What's Next?
 PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker images
 REPOSITORY         TAG                  IMAGE ID       CREATED          SIZE
 hello_node         slim                 5f123a3e6bcb   13 seconds ago   212MB
+
+
+## RUNNING CONTAINERS BASED ON TAGGED IMAGES
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker run -p 3001:3000 -d --rm hello_node:slim
+73684948d6a2d160f36493240a5cc695b6b6cb370fb8826216538edf23f8d4dd
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                    NAMES
+73684948d6a2   hello_node:slim   "docker-entrypoint.s…"   23 seconds ago   Up 22 seconds   0.0.0.0:3001->3000/tcp   happy_raman
+a361322f5f86   a62b6d2f1f1a      "docker-entrypoint.s…"   22 hours ago     Up 22 hours     0.0.0.0:3000->80/tcp     my_container_name
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker stop happy_raman
+happy_raman
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS        PORTS                  NAMES
+a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   22 hours ago   Up 22 hours   0.0.0.0:3000->80/tcp   my_container_name
