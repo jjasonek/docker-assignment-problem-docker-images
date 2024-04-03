@@ -55,3 +55,30 @@ bmi_counter
 PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker rmi 15e5614526a9 8d911866707e
 Deleted: sha256:15e5614526a97c70f58e8a90be778f0da9ede87de975e14f16a84c9b32937081
 Deleted: sha256:8d911866707eb3ca04b3a1cb59bfbc15d70bfed0d3c9048bfe1d1936a825972f
+
+
+## IMAGE NAMES
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker build . -t hello_node:slim
+[+] Building 6.0s (9/9) FINISHED                                                                                                                                                                                     docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                                                                           0.0s
+ => => transferring dockerfile: 135B                                                                                                                                                                                           0.0s
+ => [internal] load metadata for docker.io/library/node:slim                                                                                                                                                                   1.0s
+ => [internal] load .dockerignore                                                                                                                                                                                              0.0s
+ => => transferring context: 2B                                                                                                                                                                                                0.0s
+ => [1/4] FROM docker.io/library/node:slim@sha256:ab9d8781cb3fe8b6429d68c6ce19512a4ff526a6688240249ca15069b8124626                                                                                                             0.0s
+ => [internal] load build context                                                                                                                                                                                              0.0s
+ => => transferring context: 4.98kB                                                                                                                                                                                            0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                                                                  0.0s
+ => [3/4] COPY . /app                                                                                                                                                                                                          0.0s
+ => [4/4] RUN npm install                                                                                                                                                                                                      4.7s
+ => exporting to image                                                                                                                                                                                                         0.1s
+ => => exporting layers                                                                                                                                                                                                        0.1s
+ => => writing image sha256:5f123a3e6bcb96832e42195a0233cb7e36b5fd5bbda51a1b92c531b32656f5d3                                                                                                                                   0.0s
+ => => naming to docker.io/library/hello_node:slim                                                                                                                                                                             0.0s
+
+What's Next?
+  1. Sign in to your Docker account → docker login
+  2. View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker images
+REPOSITORY         TAG                  IMAGE ID       CREATED          SIZE
+hello_node         slim                 5f123a3e6bcb   13 seconds ago   212MB
