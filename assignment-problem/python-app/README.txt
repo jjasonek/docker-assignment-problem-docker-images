@@ -1,5 +1,5 @@
 ## FIRST RUN
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker run -it --rm 15e5614526a9
+docker run -it --rm 15e5614526a9
 (1) Metric (m, kg) or (2) Non-Metric (ft, pounds)?
 Please choose: 1
 Please enter your height in meters
@@ -7,14 +7,14 @@ Your height: 1.62
 Please enter your weight in kilograms
 Your weight: 75
 Your body-mass-index: 28.577960676726104
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker ps -a
+docker ps -a
 CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS        PORTS                  NAMES
 a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   21 hours ago   Up 21 hours   0.0.0.0:3000->80/tcp   my_container_name
 
 
 
 ## USING CONTAINER NAME
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker run -it --name bmi_counter 15e5614526a9
+docker run -it --name bmi_counter 15e5614526a9
 (1) Metric (m, kg) or (2) Non-Metric (ft, pounds)?
 Please choose: 1
 Please enter your height in meters
@@ -22,14 +22,14 @@ Your height: 1.62
 Please enter your weight in kilograms
 Your weight: 78
 Your body-mass-index: 29.721079103795148
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker ps -a
+docker ps -a
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS                  NAMES
 e20f463a7a59   15e5614526a9   "python3 bmi.py"         23 seconds ago   Exited (0) 12 seconds ago                          bmi_counter
 a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   21 hours ago     Up 21 hours                 0.0.0.0:3000->80/tcp   my_container_name
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker stop bmi_counter
+docker stop bmi_counter
 bmi_counter
 
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker start -ai bmi_counter
+docker start -ai bmi_counter
 (1) Metric (m, kg) or (2) Non-Metric (ft, pounds)?
 Please choose: 1
 Please enter your height in meters
@@ -37,17 +37,17 @@ Your height: 1.62
 Please enter your weight in kilograms
 Your weight: 78
 Your body-mass-index: 29.721079103795148
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker stop bmi_counter
+docker stop bmi_counter
 bmi_counter
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app> docker ps -a
+docker ps -a
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS                      PORTS                  NAMES
 e20f463a7a59   15e5614526a9   "python3 bmi.py"         4 minutes ago   Exited (0) 22 seconds ago                          bmi_counter
 a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   21 hours ago    Up 21 hours                 0.0.0.0:3000->80/tcp   my_container_name
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\node-app>
+
 
 
 ## IMAGE NAMES
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker build . -t bmi_counter:3.12-slim
+docker build . -t bmi_counter:3.12-slim
 [+] Building 1.1s (8/8) FINISHED                                                                                                                                                                                     docker:default
  => [internal] load build definition from Dockerfile                                                                                                                                                                           0.0s
  => => transferring dockerfile: 112B                                                                                                                                                                                           0.0s
@@ -67,13 +67,13 @@ PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python
 What's Next?
   1. Sign in to your Docker account → docker login
   2. View a summary of image vulnerabilities and recommendations → docker scout quickview
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker images
+docker images
 REPOSITORY         TAG                  IMAGE ID       CREATED         SIZE
 bmi_counter        3.12-slim            e3c3239bd4fe   7 seconds ago   130MB
 
 
 ## RUNNING CONTAINERS BASED ON TAGGED IMAGES
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker run -ti --rm bmi_counter:3.12-slim
+docker run -ti --rm bmi_counter:3.12-slim
 (1) Metric (m, kg) or (2) Non-Metric (ft, pounds)?
 Please choose: 1
 Please enter your height in meters
@@ -81,6 +81,6 @@ Your height: 1.62
 Please enter your weight in kilograms
 Your weight: 78
 Your body-mass-index: 29.721079103795148
-PS C:\Training\Docker\assignment-problem-docker-images\assignment-problem\python-app> docker ps -a
+docker ps -a
 CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS        PORTS                  NAMES
 a361322f5f86   a62b6d2f1f1a   "docker-entrypoint.s…"   22 hours ago   Up 22 hours   0.0.0.0:3000->80/tcp   my_container_name
